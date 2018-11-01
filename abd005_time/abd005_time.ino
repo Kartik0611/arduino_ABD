@@ -28,16 +28,22 @@ void loop()
                           digitalWrite(LED_BUILTIN, HIGH);
                           i=i+1;
                           delay(100); 
-                          Serial.println(i);
+                          
   
   
-  }                       
+  } 
+                  
  else
   {
+                          if(i!=0)
+                          {
+                          Serial.print("size : ");
+                          Serial.println(i);
+                          }     
                           i=0;
                           digitalWrite(LED_BUILTIN, LOW);
                           delay(100); 
-                           
+                          
   
   }
   
