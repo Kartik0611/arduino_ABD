@@ -16,25 +16,6 @@
 
 Adafruit_TSL2591 tsl = Adafruit_TSL2591(2591); // pass in a number for the sensor identifier (for your use later)
 int i=0;
-/**************************************************************************/
-/*
-    Configures the gain and integration time for the TSL2591
-*/
-/**************************************************************************/
-
-void configureSensor(void)
-{
-  
- 
-  
-}
-
-
-/**************************************************************************/
-/*
-    Program entry point for the Arduino sketch
-*/
-/**************************************************************************/
 
 void setup(void) 
 {
@@ -63,7 +44,7 @@ void loop(void)
     Serial.println(x, DEC);
     delay(200);
 
-    if(x>1800)
+    if(x>1800)   // Set to required threshold
     {
                           digitalWrite(LED_BUILTIN, HIGH);
                           i=i+1;
