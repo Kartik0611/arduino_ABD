@@ -15,7 +15,7 @@
 // connect GROUND to common ground
 
 Adafruit_TSL2591 tsl = Adafruit_TSL2591(2591); // pass in a number for the sensor identifier (for your use later)
-
+int i=0;
 /**************************************************************************/
 /*
     Configures the gain and integration time for the TSL2591
@@ -62,5 +62,25 @@ void loop(void)
     Serial.print(F("Luminosity: "));
     Serial.println(x, DEC);
     delay(200);
+
+    if(x>1800)
+    {
+                          digitalWrite(LED_BUILTIN, HIGH);
+                          i=i+1;
+                          delay(100); 
+    } 
+                  
+    else
+    {
+                          if(i!=0)
+                          {
+                          Serial.print("size : ");
+                          Serial.println(i);
+                          }     
+                          i=0;
+                          digitalWrite(LED_BUILTIN, LOW);
+                          delay(100); 
+     }
+    
   }
 }
