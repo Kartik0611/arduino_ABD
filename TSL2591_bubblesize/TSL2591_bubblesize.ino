@@ -20,6 +20,9 @@ int i=0;
 void setup(void) 
 {
   Serial.begin(9600);
+  pinMode(LED_BUILTIN, OUTPUT);
+  Wire.begin();
+  
   if (tsl.begin()) 
   {
     Serial.println(F("Found a TSL2591 sensor"));
@@ -38,13 +41,13 @@ void loop(void)
 { 
   while(true)
   {
-    uint16_t x = tsl.getLuminosity(TSL2591_VISIBLE);
+    int x = tsl.getLuminosity(TSL2591_VISIBLE);
     Serial.print(F("[ ")); Serial.print(millis()); Serial.print(F(" ms ] "));
     Serial.print(F("Luminosity: "));
-    Serial.println(x, DEC);
+    Serial.println(x);
     delay(200);
 
-    if(x>1800)   // Set to required threshold
+    if(x>3180)   // Set to required threshold
     {
                           digitalWrite(LED_BUILTIN, HIGH);
                           i=i+1;
