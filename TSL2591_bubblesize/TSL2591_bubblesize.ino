@@ -42,13 +42,15 @@ void loop(void)
   while(true)
   {
     int x = tsl.getLuminosity(TSL2591_VISIBLE);
-    Serial.print(F("[ ")); Serial.print(millis()); Serial.print(F(" ms ] "));
+    //Serial.print(F("[ ")); Serial.print(millis()); Serial.print(F(" ms ] "));
     Serial.print(F("Luminosity: "));
     Serial.println(x);
     delay(200);
 
-    if(x>3180)   // Set to required threshold
-    {
+    if(x>3200)   // Set to required threshold
+    {                     
+                          //Serial.print(millis());
+                          //Serial.print(t1);
                           digitalWrite(LED_BUILTIN, HIGH);
                           i=i+1;
                           delay(100); 
