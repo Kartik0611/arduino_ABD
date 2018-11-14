@@ -44,7 +44,7 @@ void loop(void)
     Serial.println(lux);
     delay(200);
 
-    if(x>1800)   // Set to required threshold
+    if(x>2250)   // Set to required threshold
     {
                           digitalWrite(buzz, HIGH);
                           i=i+1;
@@ -64,7 +64,7 @@ void loop(void)
                           delay(100); 
      }
     
-    if(lux>1800)
+    if(lux>6000)
     {
   
                           digitalWrite(LED_BUILTIN, HIGH);
